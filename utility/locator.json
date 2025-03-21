@@ -1,0 +1,7 @@
+{
+    "textboxLoc":"#todo-input",
+    "todoCountLoc":".todo-list li",
+    "checkBoxLoc": ".toggle",
+    "completedCountLoc": ".todo-list li.completed",
+    "destroyButtonLoc":".destroy"
+}
