@@ -32,6 +32,20 @@ test.describe('practice test', () => {
     expect(todoCount).toBe(1);
   });
 
+  test('added different input', async ({ page }) => {
+    await page.fill(textboxLoc, '');
+    await page.press(textboxLoc, 'Enter');
+    await page.fill(textboxLoc, 'abc123');
+    await page.press(textboxLoc, 'Enter');
+    await page.fill(textboxLoc, 'abc123@');
+    await page.press(textboxLoc, 'Enter');
+    await page.fill(textboxLoc, '123');
+    await page.press(textboxLoc, 'Enter');
+    await page.waitForTimeout(5000)
+    const todoCount = await page.locator(todoCountLoc).count();
+    expect(todoCount).toBe(3);
+  });
+
   test('delete items', async ({ page }) => {
     await page.fill(textboxLoc, 'Test Todo 1');
     await page.press(textboxLoc, 'Enter');
