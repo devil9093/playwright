@@ -3,7 +3,7 @@ import { payload } from '../utility/apiData';
 
 test.describe('API in Playwright', () => {
 
-  test.only('Api test', async({ request }) =>{
+  test('Api test', async({ request }) =>{
     const response = await request.post('http://localhost:8080',{
       data:payload,
       headers: { "Accept":"application/json"}
