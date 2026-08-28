@@ -5,14 +5,12 @@ test.describe('practice test', () => {
   test.beforeEach('open base url',async ({ page }) => {
     await page.goto('http://localhost:8080');
   });
-
   test('add todo items', async ({ page }) => {
     await page.fill(textboxLoc, 'Test Todo 1');
     await page.press(textboxLoc, 'Enter');
     const todoCount = await page.locator(todoCountLoc).count();
     expect(todoCount).toBe(1);
   });
-
   test('mark todo items as complete', async ({ page }) => {
     await page.fill(textboxLoc, 'Test Todo 1');
     await page.press(textboxLoc, 'Enter');
@@ -20,7 +18,6 @@ test.describe('practice test', () => {
     await page.waitForSelector(completedCountLoc, {timeout: 10000})
     await page.locator(completedCountLoc).isVisible();
   });
-  
   test('mark todo items as complete then again mark as not complete', async ({ page }) => {
     await page.fill(textboxLoc, 'Test Todo 1');
     await page.press(textboxLoc, 'Enter');
@@ -31,7 +28,6 @@ test.describe('practice test', () => {
     const todoCount = await page.locator(todoCountLoc).count();
     expect(todoCount).toBe(1);
   });
-
   test('added different input', async ({ page }) => {
     await page.fill(textboxLoc, '');
     await page.press(textboxLoc, 'Enter');
@@ -45,7 +41,6 @@ test.describe('practice test', () => {
     const todoCount = await page.locator(todoCountLoc).count();
     expect(todoCount).toBe(3);
   });
-
   test('delete items', async ({ page }) => {
     await page.fill(textboxLoc, 'Test Todo 1');
     await page.press(textboxLoc, 'Enter');
